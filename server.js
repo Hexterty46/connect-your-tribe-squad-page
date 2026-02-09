@@ -25,7 +25,7 @@ const squadResponseJSON = await squadResponse.json()
 
 // Controleer eventueel de data in je console
 // (Let op: dit is _niet_ de console van je browser, maar van NodeJS, in je terminal)
-// console.log(squadResponseJSON)
+console.log(squadResponseJSON)
 
 
 // Maak een nieuwe Express applicatie aan, waarin we de server configureren
