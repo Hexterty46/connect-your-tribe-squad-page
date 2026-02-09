@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1.5;
+}
+
+body {
+    background-color: var(--line-white);
+}
+
+main {
+  background: repeating-linear-gradient(
+    90deg,
+    #2e7d32 0px,
+    #2e7d32 80px,
+    #4caf50 80px,
+    #4caf50 160px
+  );
+    width: 65.625rem;
+    height: 42.5rem;
+}
