@@ -73,7 +73,7 @@ app.get('/', async function (request, response) {
 
   // personResponseJSON bevat gegevens van alle personen uit alle squads van dit jaar
   // Toon eventueel alle data in de console
-  // console.log(personResponseJSON)
+  console.log(personResponseJSON)
 
   // Render index.liquid uit de views map en geef de opgehaalde data mee als variabele, genaamd persons
   // Geef ook de eerder opgehaalde squad data mee aan de view
