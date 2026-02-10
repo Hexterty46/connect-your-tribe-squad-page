@@ -1,16 +1,32 @@
 {% render 'partials/head.liquid', title: 'Squad page' %}
 
 <main>
+  <div class="middle-line"></div>
+  <div class="goal-line-1"></div>
+  <div class="goal-line-2"></div>
+  <section class="team-a">
+    {% assign positions = "keeper,def-1,def-2,def-3,def-4,mid-1,mid-2,mid-3,att-1,att-2,att-3" | split: "," %}
 
+    {% for person in persons limit:11 %}
+      <div class="player {{ positions[forloop.index0] }}">
+        <a href="student/{{ person.id }}">
+          <section class="front">
+            <img src="https://fdnd.directus.app/assets/" {{ person.avatar }} alt="{{ person.name }}" >
+          </section>
+          <section class="back"></section>
+        </a>
+      </div>
+    {% endfor %}
+  </section>
 </main>
 
-
-
-{% comment %} <h2>Students</h2>
-<ul>
-  {% for person in persons %}
-    <li><a href="/student/{{ person.id }}">{{ person.name }}</a></li>
-  {% endfor %}
-</ul> {% endcomment %}
+{% comment %}
+  <h2>Students</h2>
+  <ul>
+    {% for person in persons %}
+      <li><a href="/student/{{ person.id }}">{{ person.name }}</a></li>
+    {% endfor %}
+  </ul>
+{% endcomment %}
 
 {% render 'partials/foot.liquid', squads: squads %}
