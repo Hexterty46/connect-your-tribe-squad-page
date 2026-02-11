@@ -12,6 +12,7 @@ body {
 
 main {
   position: relative;
+  height: 100vh;
   width: 100%;
   aspect-ratio: 68 / 105;
   border: 2px solid #fff;
@@ -25,17 +26,68 @@ main {
   .team-a {
     .player {
       position: absolute;
-      width: 12%;
+      width: clamp(45px, 17%, 90px);
+      aspect-ratio: 1 / 1;
       border-radius: 50%;
       overflow: hidden;
-      background: #000;
-    }
+      transition: transform 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
 
-    .front {
-      /* img {
-        width: 100px;
-        height: 100px;
-      } */
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        display: block;
+      }
+    }
+  }
+
+  .team-a .player:hover {
+    transform: scale(4);
+    z-index: 10;
+  }
+
+  .team-a .player:active {
+
+      transform: scale(4);
+      z-index: 10;
+  }
+
+  #openCloseReserve {
+    position: absolute;
+    bottom: 5px;
+    left: 1px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    background-color: #f39c12;
+    color: #fff;
+    cursor: pointer;
+    z-index: 30;
+  }
+}
+
+.reserve-team {
+  display: none;
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(to bottom, #1a1a1a, #0f0f0f);
+  /* display: grid; */
+  grid-template-columns: repeat(auto-fill, minmax(55px, 1fr));
+  gap: 12px;
+  justify-items: center;
+
+  .reserve-player {
+    width: 55px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
   }
 }
@@ -49,8 +101,13 @@ main {
   left: 0;
   transform: translateY(-50%);
   z-index: 1;
+
+  /* @media (min-width: 1024px) {
+    scale: 1.5;
+  } */
 }
 
+/* Hier word de middelijn gezet. Ik hoef door de before en after geen extra HTML toe te voegen */
 .middle-line::after {
   content: "";
   position: absolute;
@@ -76,18 +133,59 @@ main {
   transform: translate(-50%, -50%);
 }
 
-/* Team-a css voor de posities */
-.team-a .keeper { top: 5%; left: 44%; }
+/* lijntjes toegevoegd aan beide zijden. Door de after in css hoef ik geen extra html toe te voegen */
+.goal-line-1::after,
+.goal-line-2::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
+  height: 60px;
+  border: 3px solid #fff;
+  border-top: none;
+}
 
-.team-a .def-1 { top: 15%; left: 10%; }
-.team-a .def-2 { top: 15%; left: 30%; }
-.team-a .def-3 { top: 15%; left: 55%; }
-.team-a .def-4 { top: 15%; left: 75%; }
+.goal-line-1::after {
+  top: 3px;
+}
 
-.team-a .mid-1 { top: 30%; left: 25%; }
-.team-a .mid-2 { top: 30%; left: 44%; }
-.team-a .mid-3 { top: 30%; left: 63%; }
+.goal-line-2::after {
+  bottom: 3px;
+  transform: translateX(-50%) rotate(180deg);
+}
 
-.team-a .att-1 { top: 45%; left: 20%; }
-.team-a .att-2 { top: 45%; left: 44%; }
-.team-a .att-3 { top: 45%; left: 68%; }
+
+/* Team-a css voor de posities boven */
+.team-a .keeper { top: 2%; left: 44%; }
+
+.team-a .def-1 { top: 10%; left: 10%; }
+.team-a .def-2 { top: 10%; left: 30%; }
+.team-a .def-3 { top: 10%; left: 55%; }
+.team-a .def-4 { top: 10%; left: 75%; }
+
+.team-a .mid-1 { top: 22%; left: 25%; }
+.team-a .mid-2 { top: 26%; left: 44%; }
+.team-a .mid-3 { top: 22%; left: 63%; }
+
+.team-a .att-1 { top: 36%; left: 20%; }
+.team-a .att-2 { top: 40%; left: 44%; z-index: 2; }
+.team-a .att-3 { top: 36%; left: 68%; }
+
+/* Posities voor beneden */
+
+.team-a .keeper-2 { bottom: 2%; left: 44%; }
+
+.team-a .def-5 { bottom: 10%; left: 10%; }
+.team-a .def-6 { bottom: 10%; left: 30%; }
+.team-a .def-7 { bottom: 10%; left: 55%; }
+.team-a .def-8 { bottom: 10%; left: 75%; }
+
+.team-a .mid-4 { bottom: 22%; left: 25%; }
+.team-a .mid-5 { bottom: 26%; left: 44%; }
+.team-a .mid-6 { bottom: 22%; left: 63%; }
+
+.team-a .att-4 { bottom: 36%; left: 20%; }
+.team-a .att-5 { bottom: 40%; left: 44%; z-index: 2; }
+.team-a .att-6 { bottom: 36%; left: 68%; }
+
