@@ -1,0 +1,60 @@
+.page {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+h1,
+h2,
+h3,
+p,
+input {
+  font-family: Inter;
+  font-weight: 300;
+}
+
+h1 {
+  font-size: 2.4rem;
+  margin-bottom: 30px;
+}
+.back {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  text-decoration: none;
+  color: #64748b;
+}
+
+.student-card {
+    width: 100%;
+    max-width: 350px;
+  background: var(--fav-color);
+  padding: 24px;
+  border-radius: 24px;
+  display: grid;
+  gap: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  outline: 3px solid var(--fav-color);
+
+    h2 {
+        margin: 0;
+        text-align: center;
+    }
+
+  .mugshot-picture {
+    width: 100%;
+    border-radius: 1rem;
+  }
+
+  .person-info {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.squad-info {
+  margin: 0;
+  text-align: center;
+  color: #64748b;
+}

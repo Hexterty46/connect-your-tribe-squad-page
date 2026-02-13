@@ -2,25 +2,24 @@
 
 <a href="/">Back</a>
 
-<div class="Card">
+<div class="student-card">
   <img
     class="mugshot-picture"
-    src="{% if person.mugshot %}https://fdnd.directus.app/assets/{{ person.mugshot }}{% else %}/images/prop.jpg{% endif %}"
+    src="{% if person.mugshot %}https://fdnd.directus.app/assets/{{ person.mugshot }}{% else %}GabgQZoWMAAufWc.jpg{% endif %}"
     alt="{{ person.name }}"
     width="300"
   >
   <h2>{{ person.name }}</h2>
-  <p class="squad">Squad {{ squad.name }}</p>
+  <p class="squad-info">Squad {{ squad.name }}</p>
 
-  <div class="bericht">
-    <h3>Laat een bericht achter</h3>
-
-    <textarea placeholder="Schrijf je bericht hier..."></textarea>
-
-    <div class="row">
-      <input type="text" placeholder="Naam">
-      <button>Versturen</button>
-    </div>
+  <div class="person-info">
+    <h3>Nickname: {{ person.nickname }}</h3>
+    {% if person.profilecard %}
+      <a href="{{ person.profilecard }}">Bekijk profilecard</a>
+    {% else %}
+      <h3>Profilecard niet beschikbaar</h3>
+    {% endif %}
+    <h3>Birthdate: {{ person.birthdate }}</h3>
   </div>
 </div>
 

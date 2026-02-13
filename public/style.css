@@ -26,7 +26,7 @@ main {
   .team-a {
     .player {
       position: absolute;
-      width: clamp(45px, 17%, 90px);
+      width: clamp(45px, 17%, 80px);
       aspect-ratio: 1 / 1;
       border-radius: 50%;
       overflow: hidden;
@@ -63,7 +63,6 @@ main {
     background-color: #f39c12;
     color: #fff;
     cursor: pointer;
-    z-index: 30;
   }
 }
 
@@ -72,13 +71,12 @@ main {
   width: 100%;
   padding: 16px;
   background: linear-gradient(to bottom, #1a1a1a, #0f0f0f);
-  /* display: grid; */
-  grid-template-columns: repeat(auto-fill, minmax(55px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 16px;
   justify-items: center;
 
   .reserve-player {
-    width: 55px;
+    width: 70px;
     aspect-ratio: 1 / 1;
     border-radius: 50%;
     overflow: hidden;
@@ -89,6 +87,18 @@ main {
       object-fit: cover;
       display: block;
     }
+  }
+
+  .reserve-player:hover {
+    transform: scale(4);
+  }
+
+  .reserve-player:active {
+    transform: scale(4);
+  }
+
+  &.show {
+    display: grid;
   }
 }
 
@@ -176,16 +186,18 @@ main {
 
 .team-a .keeper-2 { bottom: 2%; left: 44%; }
 
-.team-a .def-5 { bottom: 10%; left: 10%; }
-.team-a .def-6 { bottom: 10%; left: 30%; }
-.team-a .def-7 { bottom: 10%; left: 55%; }
-.team-a .def-8 { bottom: 10%; left: 75%; }
+.team-a .def-5 { bottom: 12%; left: 20%; }
+.team-a .def-6 { bottom: 12%; left: 44%; }
+.team-a .def-7 { bottom: 12%; left: 68%; }
 
-.team-a .mid-4 { bottom: 22%; left: 25%; }
-.team-a .mid-5 { bottom: 26%; left: 44%; }
-.team-a .mid-6 { bottom: 22%; left: 63%; }
+.team-a .mid-4 { bottom: 24%; left: 10%; }
+.team-a .mid-5 { bottom: 24%; left: 27%; }
+.team-a .mid-6 { bottom: 28%; left: 44%; }
+.team-a .mid-7 { bottom: 24%; left: 61%; }
+.team-a .mid-8 { bottom: 24%; left: 78%; }
 
-.team-a .att-4 { bottom: 36%; left: 20%; }
-.team-a .att-5 { bottom: 40%; left: 44%; z-index: 2; }
-.team-a .att-6 { bottom: 36%; left: 68%; }
+.team-a .att-4 { bottom: 38%; left: 20%; }
+.team-a .att-5 { bottom: 42%; left: 44%; z-index: 2; }
+.team-a .att-6 { bottom: 38%; left: 68%; }
+
 

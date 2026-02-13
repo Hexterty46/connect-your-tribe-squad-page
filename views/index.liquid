@@ -5,25 +5,29 @@
   <div class="goal-line-1"></div>
   <div class="goal-line-2"></div>
   <section class="team-a">
-    {% assign positions = "keeper,def-1,def-2,def-3,def-4,mid-1,mid-2,mid-3,att-1,att-2,att-3,keeper-2,def-5,def-6,def-7,def-8,mid-4,mid-5,mid-6,att-4,att-5,att-6" | replace: " ", "" | split: "," %}
-    {% for person in persons limit:22 %}
+{% assign positions = "keeper,def-1,def-2,def-3,def-4,mid-1,mid-2,mid-3,att-1,att-2,att-3,keeper-2,def-5,def-6,def-7,mid-4,mid-5,mid-6,mid-7,mid-8,att-4,att-5,att-6" | replace: " ", "" | split: "," %}
+    {% for person in persons limit:positions.size %}
       <div class="player {{ positions[forloop.index0] }}" style="border: 2px solid {{ person.fav_color }};">
         <a href="student/{{ person.id }}">
-          <img src="{% if person.mugshot %} https://fdnd.directus.app/assets/{{ person.mugshot }} {% else %} GabgQZoWMAAufWc.jpg {% endif %}" alt="{{ person.name }}">
+          <img loading="lazy" src="{% if person.mugshot %} https://fdnd.directus.app/assets/{{ person.mugshot }} {% else %} GabgQZoWMAAufWc.jpg {% endif %}" alt="{{ person.name }}">
           <span class="player-name">{{ person.name }}</span>
         </a>
       </div>
     {% endfor %}
   </section>
-  <button id="openCloseReserve">Reserve</button>
+  <button id="openCloseReserve">Reserves</button>
 </main>
-  <section class="reserve-team">
+<div class="reserve-team-section">
+  {% comment %} <button>Shoe size</button>
+  <button>Name</button> {% endcomment %}
+    <section class="reserve-team">
     {% for person in persons offset:22 %}
-      <a class="reserve-player" href="student/{{ person.id }}">
-        <img src="{% if person.mugshot %} https://fdnd.directus.app/assets/{{ person.mugshot }} {% else %} GabgQZoWMAAufWc.jpg {% endif %}" alt="{{ person.name }}">
+      <a class="reserve-player" href="student/{{ person.id }}" style="border: 2px solid {{ person.fav_color }};">
+        <img loading="lazy" src="{% if person.mugshot %} https://fdnd.directus.app/assets/{{ person.mugshot }} {% else %} GabgQZoWMAAufWc.jpg {% endif %}" alt="{{ person.name }}">
       </a>
     {% endfor %}
-  </section>  
+  </section> 
+</div> 
 
 {% comment %}
   <h2>Students</h2>
